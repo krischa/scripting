@@ -17,7 +17,7 @@ read answ1
 a=0
 while [ $a -eq 0 ]
 do
-	if [ '$answ1' = yes ]
+	if [ $answ1 = "yes" ]
 	then
 		echo 'please give xlabel:'
 		read xl
@@ -30,27 +30,58 @@ do
 		echo `set xlabel \'"$xl"/"$xu"\'` >> $foldername.txt
 		echo `set ylabel \'"$yl"/"$yu"\'` >> $foldername.txt
 		a=1
-	elif [ '$answ1' = no ]
+	elif [ $answ1 = "no" ]
 	then
+		echo 'Gnuplot will set no axis-labels.'
 		a=1
-		else
-		echo 'please type yes or no'
+	else
+		echo 'Please type yes or no'
 	fi
 done
-echo 'do you want to give a range for the x-axis? yes|no'
-
-echo 'please give start of xrange:'
-read xstart
-echo 'please give end of xrange:'
-read xend
-echo 'please give start of yrange:'
-read ystart
-echo 'please give the end of yrange:'
-read yend
+b=0
+while [ $b = 0 ]
+do
+	echo 'Do you want to give a range for the x-axis? yes|no'
+	read answ2
+	if [ $answ2 = "yes" ]
+	then
+		echo 'Please give start of xrange:'
+		read xstart
+		echo 'Please give end of xrange:'
+		read xend
+		b=1
+	elif [ $answ2 = "no" ]
+	then
+		echo 'Gnuplot will set the range for the x-axis itself.'
+		b=1
+	else
+		echo 'Please type yes or no!'
+	fi
+done
+c=0
+while [ $c = 0 ]
+do
+	echo 'Do you want to give a range for the y-axis? yes|no'
+	read answ3
+	if [ $answ3 = "yes" ]
+	then
+		echo 'Please give start of yrange:'
+		read ystart
+		echo 'Please give the end of yrange:'
+		read yend
+		c=1
+	elif [ $answ3 = "no" ]
+	then
+		echo 'Gnuplot will set the range for the y-axis itself'
+		c=1
+	else
+		echo 'Please type yes or no!'
+	fi
+done
 A=0
 while [ $A -eq 0 ]
 do
-	echo 'do you want a fit? [yes|no]'
+	echo 'do you want a fit? yes|no'
 	read answer
 	if [ $answer = "yes" ]
 	then
