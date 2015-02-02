@@ -103,6 +103,7 @@ do
 		echo 'give the variables, seperated with commas (e.g. a,b,c)'
 		read var
 		echo 'fit will be made'
+		A=1
 	elif [ $answer = "no" ]
 	then
 		echo 'fit will not be made'
@@ -112,6 +113,12 @@ do
 		A=0
 	fi
 done
+#Plotbefehl
+echo `plot \'"$foldername".csv\' u 1:2:3:4 w xyerrorbars, "$function"`
 #Plot durchführen und in pdf konvertieren
 gnuplot $foldername.txt
 epstopdf $foldername.eps
+#TODO!:
+#-grid
+#-logscale?
+#-key?
