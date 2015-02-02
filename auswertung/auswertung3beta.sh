@@ -15,18 +15,34 @@ echo 'please enter the experiments title:'
 read extitle
 echo `set title \'"$extitle"\'` >> $foldername.txt
 #sed s/titel/$extitle/ -i gps.txt
-echo 'please give xlabel:'
-read xl
+echo 'Do you want to add axislabels? yes|no'
+read answ1
+a=0
+while [ $a -eq 0 ]
+do
+	if [ '$answ1' = yes ]
+	then
+	echo 'please give xlabel:'
+	read xl
 #sed s/xgr/$xl/ -i gps.txt
-echo 'please give xunit:'
-read xu
+	echo 'please give xunit:'
+	read xu
 #sed s/xunit/$xu/ -i gps.txt
-echo 'please give ylabel:'
-read yl
+	echo 'please give ylabel:'
+	read yl
 #sed s/ygr/$yl/ -i gps.txt
-echo 'please give yunit:'
-read yu
+	echo 'please give yunit:'
+	read yu
 #sed s/yunit/$yu/ -i gps.txt
+	echo 'set xlabel \"´$xl´/´$xu´' >> $foldername.txt
+	a=1
+	elif [ '$answ1' = no ]
+	then
+	a=1
+	else
+	echo 'please type yes or no'
+	fi
+done
 echo 'please give start of xrange:'
 read xstart
 #sed s/x1/$xstart/ -i gps.txt
