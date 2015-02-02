@@ -118,6 +118,7 @@ echo `plot \'"$foldername".csv\' u 1:2:3:4 w xyerrorbars, "$function"`
 #Plot durchführen und in pdf konvertieren
 gnuplot $foldername.txt
 epstopdf $foldername.eps
+#ende
 #TODO!:
 #-grid
 #-logscale?
