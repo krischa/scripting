@@ -27,8 +27,8 @@ do
 	read yl
 	echo 'please give yunit:'
 	read yu
-	echo ´set xlabel \'"$xl"/"$xu"\'´ >> $foldername.txt
-	echo ´set ylabel \'"$yl"/"$yu"\'´ >> $foldername.txt
+	echo `set xlabel \'"$xl"/"$xu"\'` >> $foldername.txt
+	echo `set ylabel \'"$yl"/"$yu"\'` >> $foldername.txt
 	a=1
 	elif [ '$answ1' = no ]
 	then
