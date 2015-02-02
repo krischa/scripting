@@ -19,22 +19,22 @@ while [ $a -eq 0 ]
 do
 	if [ '$answ1' = yes ]
 	then
-	echo 'please give xlabel:'
-	read xl
-	echo 'please give xunit:'
-	read xu
-	echo 'please give ylabel:'
-	read yl
-	echo 'please give yunit:'
-	read yu
-	echo `set xlabel \'"$xl"/"$xu"\'` >> $foldername.txt
-	echo `set ylabel \'"$yl"/"$yu"\'` >> $foldername.txt
-	a=1
+		echo 'please give xlabel:'
+		read xl
+		echo 'please give xunit:'
+		read xu
+		echo 'please give ylabel:'
+		read yl
+		echo 'please give yunit:'
+		read yu
+		echo `set xlabel \'"$xl"/"$xu"\'` >> $foldername.txt
+		echo `set ylabel \'"$yl"/"$yu"\'` >> $foldername.txt
+		a=1
 	elif [ '$answ1' = no ]
 	then
-	a=1
-	else
-	echo 'please type yes or no'
+		a=1
+		else
+		echo 'please type yes or no'
 	fi
 done
 echo 'do you want to give a range for the x-axis? yes|no'
