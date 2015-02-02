@@ -1,0 +1,12 @@
+set terminal postscript eps enhanced
+set output 'nummer.eps'
+set xrange [x1:x2]
+set yrange [y1:y2]
+set title "titel"
+set grid
+set xlabel "xgr [xunit]"
+set ylabel "ygr [yunit]"
+set nokey
+function=val
+fit function 'nummer.csv' using 1:2 via var 
+plot 'nummer.csv' using 1:2:3:4 w xyerrorbarsabbruch, function
