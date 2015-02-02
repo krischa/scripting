@@ -49,6 +49,7 @@ do
 		read xstart
 		echo 'Please give end of xrange:'
 		read xend
+		echo `set xrange ["$xstart":"$xend"]` >> $foldername.txt
 		b=1
 	elif [ $answ2 = "no" ]
 	then
@@ -69,6 +70,7 @@ do
 		read ystart
 		echo 'Please give the end of yrange:'
 		read yend
+		echo `set yrange ["$ystart":"yend"]`
 		c=1
 	elif [ $answ3 = "no" ]
 	then
@@ -92,7 +94,6 @@ do
 		echo 'give the variables, seperated with commas (e.g. a,b,c)'
 		read var
 		echo 'fit will be made'
-		A=1
 	elif [ $answer = "no" ]
 	then
 		echo 'fit will not be made'
