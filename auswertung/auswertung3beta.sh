@@ -34,7 +34,7 @@ do
 	echo 'please give yunit:'
 	read yu
 #sed s/yunit/$yu/ -i gps.txt
-	echo 'set xlabel \"´$xl´/´$xu´' >> $foldername.txt
+	echo 'set xlabel \'"$xl"/"$xu"' >> $foldername.txt
 	a=1
 	elif [ '$answ1' = no ]
 	then
