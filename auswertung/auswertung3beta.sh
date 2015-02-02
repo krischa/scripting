@@ -35,6 +35,7 @@ do
 	read yu
 #sed s/yunit/$yu/ -i gps.txt
 	echo 'set xlabel \'"$xl"/"$xu"' >> $foldername.txt
+	echo 'set ylabel \'"$yl"/"$yu"' >> $foldername.txt
 	a=1
 	elif [ '$answ1' = no ]
 	then
@@ -43,6 +44,8 @@ do
 	echo 'please type yes or no'
 	fi
 done
+echo 'do you want to give a range for the x-axis? yes|no'
+
 echo 'please give start of xrange:'
 read xstart
 #sed s/x1/$xstart/ -i gps.txt
