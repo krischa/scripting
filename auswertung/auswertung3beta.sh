@@ -1,17 +1,23 @@
 #!/bin/bash
 echo 'Evaluation-Script for experiments by C.F.Joern: auswertung.sh v3.0 beta'
+#Hier wird die Nummer des Experiments erfragt
 echo 'please give the number of the experiment:'
 read foldername
+#Ordner wird erstellt und betreten
 mkdir $foldername
 cd $foldername
+#Beginn der Eingabe des Gnuplot-Scripts
+echo `set terminal eps enhanced coloured`
 echo `set output \'"$foldername".eps\'` >> $foldername.txt
 echo 'copy the prepared file into the new folder, then save it as csv'
 echo 'when done, give the file`s FULL name (example.csv):'
 read filename
 mv $filename $foldername.csv
+#Titel des Plots
 echo 'please enter the experiments title:'
 read extitle
 echo `set title \'"$extitle"\'` >> $foldername.txt
+#Achsenbeschriftung
 echo 'Do you want to add axislabels? yes|no'
 read answ1
 a=0
@@ -39,6 +45,7 @@ do
 	fi
 done
 b=0
+#Achsenintervall x?
 while [ $b = 0 ]
 do
 	echo 'Do you want to give a range for the x-axis? yes|no'
@@ -60,6 +67,7 @@ do
 	fi
 done
 c=0
+#Achsenintervall y?
 while [ $c = 0 ]
 do
 	echo 'Do you want to give a range for the y-axis? yes|no'
@@ -81,6 +89,7 @@ do
 	fi
 done
 A=0
+#fit?
 while [ $A -eq 0 ]
 do
 	echo 'do you want a fit? yes|no'
@@ -103,5 +112,6 @@ do
 		A=0
 	fi
 done
+#Plot durchführen und in pdf konvertieren
 gnuplot $foldername.txt
 epstopdf $foldername.eps
