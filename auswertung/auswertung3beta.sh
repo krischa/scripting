@@ -166,7 +166,7 @@ do
 		echo 'Please type yes or no!'
 done
 #fit?
-A=0
+h=0
 while [ $h -eq 0 ]
 do
 	echo 'do you want a fit? yes|no'
@@ -195,5 +195,3 @@ echo `plot \'"$foldername".csv\' u 1:2:3:4 w xyerrorbars, "$function"`
 gnuplot $foldername.txt
 epstopdf $foldername.eps
 #ende
-#TODO!:
-#-key?
