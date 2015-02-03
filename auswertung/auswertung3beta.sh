@@ -167,7 +167,7 @@ do
 done
 #fit?
 A=0
-while [ $A -eq 0 ]
+while [ $h -eq 0 ]
 do
 	echo 'do you want a fit? yes|no'
 	read answer
@@ -180,11 +180,11 @@ do
 		echo 'give the variables, seperated with commas (e.g. a,b,c)'
 		read var
 		echo 'fit will be made'
-		A=1
+		h=1
 	elif [ $answer = "no" ]
 	then
 		echo 'fit will not be made'
-		A=1
+		h=1
 	else
 		echo 'please say yes or no.'
 	fi
