@@ -1,5 +1,4 @@
 #!/bin/bash
-#asdf
 echo 'Evaluation-Script for experiments by C.F.Joern: auswertung.sh v3.0 beta'
 #Hier wird die Nummer des Experiments erfragt
 echo 'please give the number of the experiment:'
