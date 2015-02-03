@@ -91,7 +91,7 @@ do
 done
 #grid?
 d=0
-while [ d = 0 ]
+while [ $d = 0 ]
 do
 	echo 'Do you want a grid in your plot? yes|no'
 	read answ4
@@ -99,13 +99,56 @@ do
 	then
 		echo 'set grid' >> $foldername.txt
 		echo 'Grid was set.'
+		d=1
 	elif [ $answ4 = 'no' ]
 	then
 		echo 'Grid will not be set.'
+		d=1
 	else
 		echo 'Please type yes or no!'
-A=0
+	fi
+done
+#logscale?
+e=0
+while [ $e = 0 ]
+do
+	echo 'Do you want (a) logarithmic axis/axes? yes|no'
+	read answ5
+	if [ $answ5 = 'yes' ]
+	then
+		f=0
+		while [ $f = 0]
+		do
+			echo 'Which Axis do you want logarithmic? x|y|both'
+			read answ6
+			if [ $answ6 = 'x' ]
+			then
+				echo 'set xlogscale' >> $foldername.txt
+				echo 'The x-axis has been set logarithmic.'
+				f=1
+			elif [ $answ6 = 'y' ]
+				echo 'set ylogscale' >> $foldername.txt
+				echo 'The y-axis has been set logarithmic.'
+				f=1
+			elif [ $answ6 = 'both' ]
+				echo 'set xylogscale' >> $foldename.txt
+				echo 'Both axes have been set logarithmic.'
+				f=1
+			else
+				echo 'Please type x, y or both!'
+			fi
+		done
+		e=1
+	elif [ $answ5 = 'no' ]
+	then
+		echo 'No axis will be set logarithmic.'
+		e=1
+	else
+		echo 'Please type yes or no!'
+	fi
+done
 #fit?
+A=0
 while [ $A -eq 0 ]
 do
 	echo 'do you want a fit? yes|no'
@@ -136,5 +179,4 @@ gnuplot $foldername.txt
 epstopdf $foldername.eps
 #ende
 #TODO!:
-#-logscale?
 #-key?
