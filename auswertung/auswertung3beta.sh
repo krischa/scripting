@@ -147,6 +147,24 @@ do
 		echo 'Please type yes or no!'
 	fi
 done
+#key?
+g=0
+while [ $g = 0 ]
+do
+	echo 'Do you want the key to the plot? yes|no'
+	read answ7
+	if [ $answ7 = 'yes' ]
+	then
+		echo 'set key' >> $foldername.txt
+		echo 'The key for the plot has been set.'
+		g=1
+	elif [ $answ7 = 'no' ]
+		echo 'unset key' >> $foldername.txt
+		echo 'The key for the plot has been unset.'
+		g=1
+	else
+		echo 'Please type yes or no!'
+done
 #fit?
 A=0
 while [ $A -eq 0 ]
@@ -169,7 +187,6 @@ do
 		A=1
 	else
 		echo 'please say yes or no.'
-		A=0
 	fi
 done
 #Plotbefehl
