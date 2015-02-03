@@ -1,5 +1,4 @@
 #!/bin/bash
-#asdf
 echo 'Evaluation-Script for experiments by C.F.Joern: auswertung.sh v3.0 beta'
 #Hier wird die Nummer des Experiments erfragt
 echo 'please give the number of the experiment:'
@@ -195,5 +194,3 @@ echo `plot \'"$foldername".csv\' u 1:2:3:4 w xyerrorbars, "$function"`
 gnuplot $foldername.txt
 epstopdf $foldername.eps
 #ende
-#TODO!:
-#-key?
