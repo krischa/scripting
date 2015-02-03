@@ -79,7 +79,7 @@ do
 		read ystart
 		echo 'Please give the end of yrange:'
 		read yend
-		echo `set yrange ["$ystart":"yend"]`
+		echo `set yrange ["$ystart":"yend"]` >> $foldername.txt
 		c=1
 	elif [ $answ3 = "no" ]
 	then
@@ -89,6 +89,21 @@ do
 		echo 'Please type yes or no!'
 	fi
 done
+#grid?
+d=0
+while [ d = 0 ]
+do
+	echo 'Do you want a grid in your plot? yes|no'
+	read answ4
+	if [ $answ4 = 'yes' ]
+	then
+		echo 'set grid' >> $foldername.txt
+		echo 'Grid was set.'
+	elif [ $answ4 = 'no' ]
+	then
+		echo 'Grid will not be set.'
+	else
+		echo 'Please type yes or no!'
 A=0
 #fit?
 while [ $A -eq 0 ]
@@ -121,6 +136,5 @@ gnuplot $foldername.txt
 epstopdf $foldername.eps
 #ende
 #TODO!:
-#-grid
 #-logscale?
 #-key?
