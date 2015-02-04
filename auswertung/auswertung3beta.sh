@@ -223,5 +223,3 @@ echo `plot \'"$foldername".csv\' u "$xcolumn":"$ycolumn""$error", "$funktion"` >
 gnuplot $foldername.txt
 epstopdf $foldername.eps
 #ende
-#ToDo:
-#- fit-befehl-variablen übergeben
