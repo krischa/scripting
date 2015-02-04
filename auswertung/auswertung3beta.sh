@@ -30,10 +30,12 @@ do
 		read xerr
 		echo 'Give the column-number for the y-errors.'
 		read yerr
+		error=`:"$xerr":"$yerr" w xyerrorbars`
 		z=1
 	elif [ $err = 'no' ]
 	then 
 		echo 'There will be no errorbars.'
+		error=``
 		z=1
 	else
 		echo 'Please type yes or no!'
@@ -204,6 +206,7 @@ do
 		read val
 		echo 'give the variables, seperated with commas (e.g. a,b,c)'
 		read var
+		echo `fit "$funktion" "$foldername".csv u "$xcolumn":"$ycolumn" via "$var"` >> $foldername.txt 
 		echo 'fit will be made'
 		h=1
 	elif [ $answer = "no" ]
@@ -215,7 +218,7 @@ do
 	fi
 done
 #Plotbefehl
-echo `plot \'"$foldername".csv\' u "$xcolumn":"$ycolumn":"$xerr":"$yerr" w xyerrorbars, "$funktion"`
+echo `plot \'"$foldername".csv\' u "$xcolumn":"$ycolumn""$error", "$funktion"` >> $foldername.txt
 #Plot durchführen und in pdf konvertieren
 gnuplot $foldername.txt
 epstopdf $foldername.eps
