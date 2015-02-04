@@ -1,0 +1,15 @@
+set terminal postscript eps enhanced colour #ausgabe wird auf farbiges EPS 
+umgestellt
+set output 'nummer.eps' #der name der ausgabedatei wird festgelegt
+set xrange [x1:x2] #werteintervall der x-achse wird festgelegt
+set yrange [y1:y2] #werteintervall der y-achse wird festgelegt
+set title "titel" #titel des plots wird festgelegt
+set grid #raster wird gesetzt
+set xlogscale
+set xlabel "xgr / xunit" #achsenbeschriftung x-achse
+set ylabel "ygr / yunit" #achsenbeschriftung y-achse
+set nokey #legende wird ausgeschaltet
+f(x)=a*x**2+b*x+c #funktion wird definiert
+fit f(x) 'nummer.csv' using 1:2 via a,b,c #funktion wird angepasst
+plot 'nummer.csv' using 1:2:3:4 w xyerrorbars, f(x) #funktion und werte werden 
+geplotet

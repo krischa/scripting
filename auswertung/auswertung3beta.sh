@@ -13,6 +13,32 @@ echo 'copy the prepared file into the new folder, then save it as csv'
 echo 'when done, give the file`s FULL name (example.csv):'
 read filename
 mv $filename $foldername.csv
+#Wert-Spalten
+echo 'Give the column-number for the x-values.'
+read xcolumn
+echo 'Give the column-number for the y-values.'
+read ycolumn
+#Fehler
+z=0
+while [ z = 0 ]
+do
+	echo 'Do you want errorbars? yes|no'
+	read $err
+	if [ $err = 'yes' ]
+	then
+		echo 'Give the column-number for the x-errors.'
+		read xerr
+		echo 'Give the column-number for the y-errors.'
+		read yerr
+		z=1
+	elif [ $err = 'no' ]
+	then 
+		echo 'There will be no errorbars.'
+		z=1
+	else
+		echo 'Please type yes or no!'
+	fi
+done
 #Titel des Plots
 echo 'please enter the experiments title:'
 read extitle
@@ -173,7 +199,7 @@ do
 	if [ $answer = "yes" ]
 	then
 		echo 'give a function-name (e.g. f(x)):'
-		read function
+		read funktion
 		echo 'give a function-value (gnuplot-readable, e.g. a*x**2+b*x+c)'
 		read val
 		echo 'give the variables, seperated with commas (e.g. a,b,c)'
@@ -189,8 +215,10 @@ do
 	fi
 done
 #Plotbefehl
-echo `plot \'"$foldername".csv\' u 1:2:3:4 w xyerrorbars, "$function"`
+echo `plot \'"$foldername".csv\' u "$xcolumn":"$ycolumn":"$xerr":"$yerr" w xyerrorbars, "$funktion"`
 #Plot durchführen und in pdf konvertieren
 gnuplot $foldername.txt
 epstopdf $foldername.eps
 #ende
+#ToDo:
+#- fit-befehl-variablen übergeben
