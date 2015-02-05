@@ -1,5 +1,5 @@
 #!/bin/bash
-echo 'Evaluation-Script for experiments by C.F.Joern: auswertung.sh v3.0 beta'
+echo 'Evaluation-Script for experiments by C.F.Joern: auswertung.sh v3.5 beta'
 #Hier wird die Nummer des Experiments erfragt
 echo 'please give the number of the experiment:'
 read foldername
@@ -116,7 +116,7 @@ do
 		echo 'Please type yes or no!'
 	fi
 done
-#grid?
+#Gitternetzlinien?
 d=0
 while [ $d = 0 ]
 do
@@ -135,7 +135,7 @@ do
 		echo 'Please type yes or no!'
 	fi
 done
-#logscale?
+#Logarithmische Skalen?
 e=0
 while [ $e = 0 ]
 do
@@ -174,7 +174,7 @@ do
 		echo 'Please type yes or no!'
 	fi
 done
-#key?
+#Legende?
 g=0
 while [ $g = 0 ]
 do
