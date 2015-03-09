@@ -20,18 +20,18 @@ for folder in */
 		echo $NAME >> data_lehrpreis_neu.txt
 		echo $LECTURE >> data_lehrpreis_neu.txt
 		echo $PHRASE1
-                grep -c [0] ${folder}/q26.data >> data_lehrpreis_neu.txt
 		grep -c [1] ${folder}/q26.data >> data_lehrpreis_neu.txt
 		grep -c [2] ${folder}/q26.data >> data_lehrpreis_neu.txt
 		grep -c [3] ${folder}/q26.data >> data_lehrpreis_neu.txt
 		grep -c [4] ${folder}/q26.data >> data_lehrpreis_neu.txt
 		grep -c [5] ${folder}/q26.data >> data_lehrpreis_neu.txt
 		grep -c [6] ${folder}/q26.data >> data_lehrpreis_neu.txt
+		grep -c [123456] ${folder}/q26.data >> data_lehrpreis_neu.txt
 		grep -c [0123456] ${folder}/q26.data >> data_lehrpreis_neu.txt
                 echo $PHRASE2
         done
 
-ipython verdacht_neu.py
+ipython2 verdacht_neu.py
 echo 'Die Daten wurden ausgewertet!'
 echo 'Viel Spass!'
 x=1

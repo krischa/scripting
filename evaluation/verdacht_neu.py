@@ -9,8 +9,8 @@ c=0
 d=0
 while i < length-1:
 	try: 
-		onetwo = int(data[i+3])+int(data[i+4])
-		average = float(int(data[i+3])*1 + int(data[i+4])*2 + int(data[i+5])*3 + int(data[i+6])*4 + int(data[i+7])*5 + int(data[i+8])*6)/float(data[i+9])
+		onetwo = int(data[i+2])+int(data[i+3])
+		average = float(int(data[i+2])*1 + int(data[i+3])*2 + int(data[i+4])*3 + int(data[i+5])*4 + int(data[i+6])*5 + int(data[i+7])*6)/float(data[i+8])
 		if int(data[i+9]) > 9 and float(onetwo)/float(data[i+9]) >0.7 and average<2.0:
 			pro=float(onetwo)/float(data[i+9])
 			if data[i]=='\n':
@@ -22,6 +22,8 @@ while i < length-1:
 				c=c+1
 				d=d+1
 		else:
+			pro=float(onetwo)/float(data[i+9])
+			fout.write(data[i] + 'Vorlesung: ' + data[i+1] + 'Prozente: ' + str(pro*100)+ '\n' + 'Durchschnittsnote: ' + str(average) + '\n' + 'abgegebene Stimmen: ' + data[i+9] +'\n\n')
 			i=i+10
 			d=d+1
 	except:
