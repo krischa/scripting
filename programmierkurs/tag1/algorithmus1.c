@@ -1,17 +1,22 @@
 #include <stdio.h>
+#include <math.h>
 int main() {
-printf("Geben Sie eine natürliche Zahl an.");
-int c = getint();
-printf("Geben Sie die Anzahl der Iterationen an.");
-int b = getint();
-int a = b + 1;
-int n = 2;
-while (n < a) {
-	if (n > sqrt(c)) 
-		printf("Ja");
-	if (c % n == 0)
-		printf("no");
+int a = 1, c, n = 2;
+printf("Geben Sie eine natürliche Zahl an.\n");
+scanf("%i", &c);
+while (n*n < c ){
+	if (c % n == 0){
+		a = 0;
+		break;
+	}
 	n = n + 1;
 }
-return 0
+if (a == 0){
+	printf("Die eingegebene Zahl ist keine Primzahl.\n");
+	printf("%i\n", n);
+}
+if (a == 1){
+	printf("Die eingegebene Zahl ist eine Primzahl.\n");
+}
+return 0;
 }
