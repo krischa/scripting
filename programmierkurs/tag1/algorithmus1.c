@@ -4,7 +4,7 @@ int main() {
 int a = 1, c, n = 2;
 printf("Geben Sie eine natürliche Zahl an.\n");
 scanf("%i", &c);
-while (n*n < c ){
+while (n*n <= c ){
 	if (c % n == 0){
 		a = 0;
 		break;
